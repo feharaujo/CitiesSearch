@@ -1,5 +1,6 @@
-package com.fearaujo.model.util;
+package com.fearaujo.data;
 
+import com.fearaujo.data.util.CityUtils;
 import com.fearaujo.model.City;
 
 import org.junit.Test;

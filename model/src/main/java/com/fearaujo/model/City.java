@@ -1,25 +1,19 @@
 package com.fearaujo.model;
 
-import com.google.gson.annotations.SerializedName;
-
-import static com.fearaujo.model.util.CityUtils.getFullFormat;
-
 public class City implements Comparable<City> {
 
-    @SerializedName("country")
     private final String country;
-    @SerializedName("name")
     private final String name;
-    @SerializedName("_id")
     private final Integer id;
-    @SerializedName("coord")
     private final Coord coord;
+    private final String fullName;
 
     private City(Builder builder) {
         this.country = builder.country;
         this.name = builder.name;
         this.id = builder.id;
         this.coord = builder.coord;
+        this.fullName = builder.fullname;
     }
 
     public static Builder builder() {
@@ -42,26 +36,28 @@ public class City implements Comparable<City> {
         return coord;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         City city = (City) o;
-        String c1 = getFullFormat(getCountry(), city.getCountry());
-        String c2 = getFullFormat(city.getName(), city.getCountry());
-
-        return c1.equals(c2);
+        //return Objects.equals(getFullName(), city.getFullName());
+        return getFullName().equals(city.getFullName());
     }
 
     @Override
     public int hashCode() {
-        return getFullFormat(getName(), getCountry()).hashCode();
+        return getFullName().hashCode();
+        //return Objects.hash(getFullName());
     }
 
     @Override
     public int compareTo(City city) {
-        return getFullFormat(city).compareToIgnoreCase(getFullFormat(this));
+        return fullName.compareTo(city.getFullName());
     }
 
     public static class Builder {
@@ -69,6 +65,7 @@ public class City implements Comparable<City> {
         private String name;
         private Integer id;
         private Coord coord;
+        private String fullname;
 
         public Builder country(String country) {
             this.country = country;
@@ -87,6 +84,11 @@ public class City implements Comparable<City> {
 
         public Builder coord(Coord coord) {
             this.coord = coord;
+            return this;
+        }
+
+        public Builder fullname(String fullname) {
+            this.fullname = fullname;
             return this;
         }
 

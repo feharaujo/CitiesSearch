@@ -1,12 +1,8 @@
 package com.fearaujo.model;
 
-import com.google.gson.annotations.SerializedName;
-
 public class Coord {
 
-    @SerializedName("lon")
     private final Double lon;
-    @SerializedName("lat")
     private final Double lat;
 
     private Coord(Builder builder) {

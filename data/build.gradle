@@ -1,30 +1,15 @@
-apply plugin: 'com.android.library'
+apply plugin: 'java'
 
-android {
-    compileSdkVersion 27
-
-    defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-}
+sourceCompatibility = 1.8
+version = '1.0'
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.google.code.gson:gson:$gson_version"
     testImplementation "junit:junit:$test_junit_version"
+
+    testImplementation "org.powermock:powermock-module-junit4:$test_powermock_version"
+    testImplementation "org.powermock:powermock-api-mockito2:$test_powermock_version"
+
     implementation project(':model')
 }
