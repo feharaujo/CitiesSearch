@@ -52,7 +52,6 @@ public class City implements Comparable<City> {
     @Override
     public int hashCode() {
         return getFullName().hashCode();
-        //return Objects.hash(getFullName());
     }
 
     @Override
