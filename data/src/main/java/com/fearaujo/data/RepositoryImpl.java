@@ -18,7 +18,8 @@ import java.util.TreeSet;
 
 public class RepositoryImpl implements Repository {
 
-    private TreeSet<City> citiesTree;
+    private TreeSet<City> mCitiesTree;
+
     private JsonDeserializer<City> deserializer = (json, typeOfT, context) -> {
         final JsonObject jsonObject = json.getAsJsonObject();
 
@@ -53,7 +54,7 @@ public class RepositoryImpl implements Repository {
             String json = getJsonData();
             final GsonBuilder gsonBuilder = new GsonBuilder();
             gsonBuilder.registerTypeAdapter(City.class, deserializer);
-            citiesTree = gsonBuilder.create().fromJson(json, new TypeToken<TreeSet<City>>() {
+            mCitiesTree = gsonBuilder.create().fromJson(json, new TypeToken<TreeSet<City>>() {
             }.getType());
 
             return true;
@@ -75,7 +76,7 @@ public class RepositoryImpl implements Repository {
         City begin = new City.Builder().fullname(prefix).build();
         City end = new City.Builder().fullname(prefix + Character.MAX_VALUE).build();
 
-        SortedSet<City> resultSet = citiesTree.subSet(begin, end);
+        SortedSet<City> resultSet = mCitiesTree.subSet(begin, end);
         return new ArrayList<>(resultSet);
     }
 

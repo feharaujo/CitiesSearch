@@ -1,37 +1,34 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 27
+
     defaultConfig {
-        applicationId "com.fearaujo.citysearch"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:$appcompat_version"
-    implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
-
     testImplementation "junit:junit:$test_junit_version"
-    testImplementation "org.powermock:powermock-module-junit4:$test_powermock_version"
-    testImplementation "org.powermock:powermock-api-mockito2:$test_powermock_version"
-
-    implementation project(':data')
-    implementation project(':model')
-    implementation project(':arch')
 }

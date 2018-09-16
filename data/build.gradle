@@ -6,8 +6,8 @@ version = '1.0'
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.google.code.gson:gson:$gson_version"
-    testImplementation "junit:junit:$test_junit_version"
 
+    testImplementation "junit:junit:$test_junit_version"
     testImplementation "org.powermock:powermock-module-junit4:$test_powermock_version"
     testImplementation "org.powermock:powermock-api-mockito2:$test_powermock_version"
 
