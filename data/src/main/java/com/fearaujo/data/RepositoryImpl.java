@@ -50,6 +50,8 @@ public class RepositoryImpl implements Repository {
      */
     @Override
     public boolean initRepository() {
+        if (mCitiesTree != null) return true;
+
         try {
             String json = getJsonData();
             final GsonBuilder gsonBuilder = new GsonBuilder();

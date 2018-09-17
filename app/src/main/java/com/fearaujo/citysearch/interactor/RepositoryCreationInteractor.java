@@ -1,4 +1,4 @@
-package com.fearaujo.citysearch.search;
+package com.fearaujo.citysearch.interactor;
 
 import com.fearaujo.arch.interactors.base.Interactor;
 

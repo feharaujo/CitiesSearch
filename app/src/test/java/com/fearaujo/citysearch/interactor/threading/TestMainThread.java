@@ -1,4 +1,4 @@
-package com.fearaujo.citysearch.search.threading;
+package com.fearaujo.citysearch.interactor.threading;
 
 import com.fearaujo.arch.executor.MainThread;
 

@@ -45,7 +45,6 @@ public class City implements Comparable<City> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         City city = (City) o;
-        //return Objects.equals(getFullName(), city.getFullName());
         return getFullName().equals(city.getFullName());
     }
 
@@ -56,7 +55,7 @@ public class City implements Comparable<City> {
 
     @Override
     public int compareTo(City city) {
-        return fullName.compareTo(city.getFullName());
+        return fullName.compareToIgnoreCase(city.getFullName());
     }
 
     public static class Builder {

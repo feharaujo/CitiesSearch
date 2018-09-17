@@ -1,5 +1,6 @@
-package com.fearaujo.citysearch.search;
+package com.fearaujo.citysearch.interactor;
 
+import com.fearaujo.citysearch.BaseTest;
 import com.fearaujo.model.City;
 
 import org.junit.Test;
@@ -13,7 +14,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-public class SearchInteractorImplTest extends BaseInteractorTest {
+public class SearchInteractorImplTest extends BaseTest {
 
     @Mock
     private SearchInteractor.Callback mCallback;

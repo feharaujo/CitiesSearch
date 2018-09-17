@@ -1,4 +1,6 @@
-package com.fearaujo.citysearch.search;
+package com.fearaujo.citysearch.interactor;
+
+import com.fearaujo.citysearch.BaseTest;
 
 import org.junit.Test;
 import org.mockito.Mock;
@@ -7,7 +9,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-public class RepositoryCreationInteractorImplTest extends BaseInteractorTest {
+public class RepositoryCreationInteractorImplTest extends BaseTest {
 
     @Mock
     private RepositoryCreationInteractor.Callback mCallback;
